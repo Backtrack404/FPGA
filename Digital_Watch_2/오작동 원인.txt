@@ -1,0 +1,12 @@
+결론 
+오작동 원인 
+시계 전체 시뮬레이션 조건은 KEY입력이 default Low인 상태로 가정
+실습보드의 KEYY입력은 pull-up상태로 default High인 상태
+A 입력이 LOW 인 상태에서 SEL = '0'(RUN MODE)에서 SEL = '1'(Set Mode)로의 상태가 변화하였을 경우 SET MODE진입시 원하지 않는 카운터값 증가
+
+해결 방법
+Default Low로 바꿔주면됨 
+MUX안에 내보낼 떄 반전시켜 내보내면 됨
+아니면 KEY에 NOT붙혀서 내보내면 됨
+
+시뮬레이션 조건과 실제 동작 환경을 일치 시키기 위해 B의 입력을 반전(Not)해서 카운터의 클럭 입력으로 전달하여 key입력이 없을 경우 클럭을 Default Low로 바꿔주면 된다.
